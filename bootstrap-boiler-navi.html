@@ -41,6 +41,35 @@
         </div>
     </nav>
 
+        <main role="main" class="container">
+        <div class="row">
+            <div class="col-md-12 blog-main">
+                <h1>Blog Listausgabe</h1>
+
+                <?php
+                foreach ($this->['postResults'] as $post) {
+                    ?>
+                    <h2 class="pb-4 mb-4 font-italic border-bottom">
+                        <?php echo $post['title']; ?>
+                    </h2>
+
+                    <div class="blog-post">
+                        <p class="blog-post-meta"><?php echo date('d.m.Y H:i:s', $post['created_at']); ?>
+                            <a href="/blog/edit/<?php echo $post['id']; ?>">bearbeiten</a> | <a href="/blog/delete/<?php echo $post['id']; ?>">löschen</a>
+                        </p>
+                        <p>
+                            <?php echo $post['body']; ?>
+                        </p>
+                    </div>
+                    <?php
+                }
+                ?>
+            </div>
+        </div>
+    </main>
+
+    
+    
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
